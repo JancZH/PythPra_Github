@@ -1,2 +1,2 @@
 # PythPra_Github
-python练习
+> python相关学习 & 练习
