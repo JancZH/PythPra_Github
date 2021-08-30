@@ -2,6 +2,21 @@
 #### 1. 整数
 #### 2. 浮点数
 #### 3. 字符串 : '' ; ""
+> Python 3 中的字符串是用Unicode编码的
+> 对于单个字符，可以用 **ord()** 函数获取字符的整数表示，**chr()** 函数将编码转换成对应的字符
+
+> Python的字符串类型是str，在内存中用Unicode表示。如果在网络上传播或存储在磁盘中就需要把**str** 变为以字节为单位的**bytes** 
+> Python对**bytes** 类型的数据用**b** 前缀的单引号或者双引号表示
+> 例如 ：x = b'abc'
+> 以Unicode编码的**str** 可以通过**encode()** 编码为指定的**bytes** 
+> 例：'ABC'.encode('ascii')    #b'ABC'
+> 要把 **bytes** 编程**str** 就要用**decode()** 
+> 可以用**errors='ignore'** 忽略无效的字节
+
+> **len()** 函数可以计算**str** 包含的字符数量，**bytes** 的字节数
+
+> 编译python文件时最好在前面加上 **# -*- coding: utf-8 -*-** 告诉python解释器用utf-8编码来读取源代码
+
 #### 4. 布尔值 : True/False
 >  可以用 **and or not** 运算
 #### 5. 空值： None
@@ -26,6 +41,22 @@ Lisa!'''
 ```
 print('100 + 200 =', 100 + 200) # 100 + 200 = 300
 print('This is','an','apple.') # This is an apple.逗号输出空格
+```
+##### 格式化输出字符串：用 *%* 来实现
+```
+print('hello,%s' % 'world')
+```
+##### 格式化字符串：用**format()** 
+```
+'Hello, {0}, 成绩提升了 {1:.1f}%'.format('小明', 17.125)
+'Hello, 小明, 成绩提升了 17.1%'
+```
+##### 格式化字符串：用**f-string** 
+```
+r = 2.5
+s = 3.14 * r ** 2
+print(f'The area of a circle with radius {r} is {s:.2f}')
+The area of a circle with radius 2.5 is 19.62
 ```
 #### 2. 输入：input()
 **input()** 可以将用户输入的字符存放在变量中
