@@ -1,3 +1,106 @@
+### dict & set
+#### 1. dict : 使用键-值(key-value)进行存储，拥有极快的查找速度
+```
+d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
+d['Michael']
+95
+```
+##### 查找 key 的方式
+1. 通过 **in** 来判断key是否存在
+   ```
+   >>> 'Tom' in d
+   False
+   ```
+2. 通过 **get()** 方法，key不存在返回**None** ，存在返回对应**value**
+   返回None时，交互环境不返回结果
+   ```
+   >>> d.get('Thomas')
+   >>> d.get('Thomas', -1)
+   -1
+   ```
+##### 删除 key 的方式
+1. pop(key)
+   ```
+   d.pop('Bob')
+   ```
+
+##### ⚠️注意
+> dict的key是不可变对象
+
+#### 2. set
+> set和dict类似，也是key的集合，但set不储存value。key不能重复，因此set中没有重复的key值
+##### 创建set需要提供一个list，作为输入集合,显示的顺序不代表set是有序的
+```
+>>> s = set([1,2,3])
+>>> s
+{1,2,3}
+```
+##### 重复元素在set中自动被过滤
+```
+>>> s = set([1,1,1,1,2,2,3,3])
+>>> s
+{1,2,3}
+```
+##### 添加元素到set中
+注：重复添加没有效果
+```
+>>> s.add(4)
+>>> s
+{1,2,3,4}
+```
+##### 删除元素
+```
+>>> s.remove(4)
+>>> s
+{1,2,3}
+```
+##### set可以看成数学意义上的无序和不重复的集合，可以进行并集和交集的运算
+```
+>>> s1 = set([1,2,3])
+>>> s2 = set([2,3,4])
+>>> s1 & s2
+{2,3} 交集
+>>> s1 | s2
+{1,2,3,4} 并集
+```
+#### 3. set和dict唯一的区别在于set没有存储对应的value，但同样不可以放入可变对象
+
+
+### Python中的两种数据类型，内置集合
+#### 1. list 可变的有序表
+例：
+```
+classmates = ['Tom','Alice','Jike']
+```
+classmates最后的索引下标是 **len(classmates) - 1** 
+最后一个元素可以这样获得 **classmates[-1]** 以此类推：倒数第二个**classmates[-2]**
+> 利用 **list()** 函数可以转换为list类型
+##### 追加元素到末尾 : append()
+```
+classmates.append('John')
+```
+##### 将元素插入指定位置 : insert()
+索引号为 1 的位置
+```
+classmates.insert(1,'Jack')
+```
+##### 删除list末尾的元素 : pop()
+##### 删除指定位置的元素 : pop(i)
+> i是指定位置索引
+##### list数据类型可以不同
+```
+list = ['abc',123,False]
+```
+##### list元素中可以是另一个list
+```
+list = ['abc','def',['wer','wdg'],'fvb']
+len(list) = 4
+```
+#### 2. 另一种有序列表 元组 : tuple
+> tuple 一旦初始化就不能更改
+> 不能更改的是**tuple** 中元素的指向。如指向的元素类型可以更改，则可以更改
+
+
 ### 数据类型
 #### 1. 整数
 #### 2. 浮点数
@@ -59,6 +162,9 @@ print(f'The area of a circle with radius {r} is {s:.2f}')
 The area of a circle with radius 2.5 is 19.62
 ```
 #### 2. 输入：input()
+> input()返回的数据类型是 **str**
+> 可以使用 **int()** 来进行*字符串* 到 *整数* 的转换
+
 **input()** 可以将用户输入的字符存放在变量中
 ```
 name = input()
