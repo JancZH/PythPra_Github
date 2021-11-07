@@ -1,3 +1,29 @@
+### 函数
+#### 1. 定义函数用 *def*
+```
+def my_abs(x):
+    if not isinstance(x, (int, float)):
+      raise TypeError('bad operand type')
+    if x >= 0:
+      return x
+    else:
+      return -x
+```
+- **isinstance()** : 能够进行参数类型检查
+- **return** 实际上返回的是**一个tuple** 类型的值
+##### 空函数：
+```
+def nop():
+   pass
+```
+#### 2. 函数的参数
+**（1）必选的参数（2）默认参数（3）可变参数（4）关键字参数**
+##### 设置默认参数要注意
+一是必选参数在前，默认参数在后，否则Python的解释器会报错（思考一下为什么默认参数不能放在必选参数前面）；
+二是如何设置默认参数。
+三⚠️ 默认参数必须指向不变对象
+
+----
 ### dict & set
 #### 1. dict : 使用键-值(key-value)进行存储，拥有极快的查找速度
 ```
